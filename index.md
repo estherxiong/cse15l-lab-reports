@@ -1,4 +1,4 @@
-# Week 1 Lab Report
+# Week 1 Lab Report (01/12/2023)
 
 ## Step 1: Installing VScode
 
@@ -35,6 +35,7 @@ RSA key fingerprint is SHA256:ksruYwhnYH+sySHnHAtLUHngrPEyZTDl/1x99wUQcec.
 Are you sure you want to continue connecting (yes/no/[fingerprint])? 
 Password: 
 ```
+
 <img width="392" alt="Screenshot 2023-01-12 at 9 21 01 PM" src="https://user-images.githubusercontent.com/122568591/212245397-7685ba70-c096-4f75-93ec-1199af418c14.png">
 
 
