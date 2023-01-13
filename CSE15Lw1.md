@@ -1,4 +1,4 @@
-# Week 1 Lab Report
+# Week 1 Lab Report (01/12/23)
 
 ## Step 1: Installing VScode
 
@@ -50,6 +50,7 @@ Here are some commands that are useful:
 - `ls <directory> where <directory>` is `/home/linux/ieng6/cs15lwi23/cs15lwi23abc`, where the abc is one of the other group members’ username
 - `cp /home/linux/ieng6/cs15lwi23/public/hello.txt ~/`
 - `cat /home/linux/ieng6/cs15lwi23/public/hello.txt`
+
 <img width="597" alt="Screenshot 2023-01-12 at 9 23 49 PM" src="https://user-images.githubusercontent.com/122568591/212245645-1160f8d9-1fcd-4489-8e83-03d550a011b8.png">
 
 Hint: use `Ctrl-D1` and run the command `exit` to log out of the remote server.
