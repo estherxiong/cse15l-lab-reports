@@ -17,24 +17,28 @@
   
 * Then, to use ssh, open a terminal in VScode. (Terminal → New Terminal menu option). Your command will look like this, but with the zz replaced by the letters in your course-specific account.
 
-```$ ssh cs15lwi23zz@ieng6.ucsd.edu```
+`$ ssh cs15lwi23zz@ieng6.ucsd.edu`
   
 * If it's your first time connected to the server, then you will get this message:
 
- ```⤇ ssh cs15lwi23zz@ieng6.ucsd.edu
+```
+ ⤇ ssh cs15lwi23zz@ieng6.ucsd.edu
 The authenticity of host 'ieng6.ucsd.edu (128.54.70.227)' can't be established.
 RSA key fingerprint is SHA256:ksruYwhnYH+sySHnHAtLUHngrPEyZTDl/1x99wUQcec.
 Are you sure you want to continue connecting (yes/no/[fingerprint])? 
 ```
+
 * Type yes and press enter, then give your password; the whole interaction should look something like this once you give your password and are logged in:
 
-```# On your client
+```
+# On your client
 ⤇ ssh cs15lwi23zz@ieng6.ucsd.edu
 The authenticity of host 'ieng6-202.ucsd.edu (128.54.70.227)' can't be established.
 RSA key fingerprint is SHA256:ksruYwhnYH+sySHnHAtLUHngrPEyZTDl/1x99wUQcec.
 Are you sure you want to continue connecting (yes/no/[fingerprint])? 
-Password: 
+Password:
 ```
+
 <img width="392" alt="Screenshot 2023-01-12 at 9 21 01 PM" src="https://user-images.githubusercontent.com/122568591/212245397-7685ba70-c096-4f75-93ec-1199af418c14.png">
 
 
