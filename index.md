@@ -101,6 +101,8 @@ static void reverseInPlace(int[] arr) {
 
 The fix addressed the issue of needing to create a temp array cloned from the original. That way, all the elements in the original array can be assigned correctly, using the temp array. The code with the bug lost values when assigning elements to new indices.
 
+
+
 ## Part 3
 
 Something I learned from the labs are how to build and run a web server, as well as how to run the server using a remote computer. I also learned about paths and the various commands you can create and implement to the website. Some examples include /add-message, /count, and /increment.
