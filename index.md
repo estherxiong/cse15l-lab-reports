@@ -36,7 +36,6 @@ class StringServer {
         Server.start(port, new Handler());
     }
 }
-
 ```
 
 #### Request: `/add-message?s=hi!`
