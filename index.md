@@ -7,7 +7,7 @@ Task: Write a web server `StringServer` that support the path and behavior descr
 
 Code:
 
-```
+```javascript
 import java.io.IOException;
 import java.net.URI;
 
@@ -57,7 +57,7 @@ class StringServer {
 ## Part 2
 
 A failure-inducing input:
-```	
+```javascript
 public void testReverseInPlace() {
 int[] input1 = { 1, 2, 3 };
 ArrayExamples.reverseInPlace(input1);
@@ -66,7 +66,7 @@ assertArrayEquals(new int[]{ 3, 2, 1 }, input1);
 ```
 
 An input that doesn't induce a failure:
-```
+```javascript
 public void testReverseInPlace() {
 int[] input1 = { 3 };
 ArrayExamples.reverseInPlace(input1);
@@ -79,7 +79,7 @@ The symptom of the two tests:
 <img width="660" alt="Screenshot 2023-01-28 at 9 40 49 PM" src="https://user-images.githubusercontent.com/122568591/215307375-9e739e54-da80-4e9d-a12d-0f289e8e9726.png">
 
 Before(bug):
-```
+```javascript
 static void reverseInPlace(int[] arr) {
     for(int i = 0; i < arr.length; i += 1) {
         arr[i] = arr[arr.length - i - 1];
@@ -88,7 +88,7 @@ static void reverseInPlace(int[] arr) {
 ```
 
 After:
-```
+```javascript
 static void reverseInPlace(int[] arr) {
     int[] temp = arr.clone();
     for(int i = 0; i < arr.length; i += 1) {
