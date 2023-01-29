@@ -1,7 +1,7 @@
 # Lab Report 2 - Servers and Bugs (1/30/23)
 ## Part 1
 
-Task: Write a web server `StringServer` that support the path and behavior described below. It should keep track of a single string that gets added to by incoming requests. The requests should look like this:
+**Task:** Write a web server `StringServer` that support the path and behavior described below. It should keep track of a single string that gets added to by incoming requests. The requests should look like this:
 
 ```
 /add-message?s=<string>
