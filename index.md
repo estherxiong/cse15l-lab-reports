@@ -1,110 +1,194 @@
-# Lab Report 2 - Servers and Bugs (2/12/23 REGRADE)
-## Part 1
+# Lab Report 3 - Servers and Bugs (2/13/23)
 
-**Task:** Write a web server `StringServer` that support the path and behavior described below. It should keep track of a single string that gets added to by incoming requests. The requests should look like this:
+### 1. grep -v
+Inverts the match and displays non-matching lines.
 
+#### a) Find directory names
+Command:
 ```
-/add-message?s=<string>
-```
-
-Code:
-
-```javascript
-import java.io.IOException;
-import java.net.URI;
-
-class Handler implements URLHandler {
-
-    String output = "";
-    public String handleRequest(URI url) {
-        System.out.println("Path: " + url.getPath());
-        if (url.getPath().contains("/add-message")) {
-            String[] parameters = url.getQuery().split("=");
-            output+=parameters[1] + '\n';
-        }
-        return output;
-    }
-}
-
-class StringServer {
-    public static void main(String[] args) throws IOException {
-        if(args.length == 0){
-            System.out.println("Missing port number! Try any number between 1024 to 49151");
-            return;
-        }
-
-        int port = Integer.parseInt(args[0]);
-
-        Server.start(port, new Handler());
-    }
-}
+grep -v ".txt" find-results.txt 
 ```
 
-#### Request: `/add-message?s=hi!`
-
-<img width="384" alt="Screenshot 2023-01-28 at 7 11 56 PM" src="https://user-images.githubusercontent.com/122568591/215305002-3d60ebd1-ec24-4235-9390-f5bd782a4fd8.png">
-
-* The methods that are called are .getPath, .contains, .getQuery, .split
-* The relevant arguments to those methods are args[0] (the port number), "/add-message", "=".
-* `output` is appended with new message for every  `/add-message`
-* The first message displays `hi!` only because `ouput` only holds that string since it was previously empty.
-
-#### Request: `/add-message?s=my name is esther :-)`
-
-<img width="476" alt="Screenshot 2023-01-28 at 7 12 23 PM" src="https://user-images.githubusercontent.com/122568591/215305003-d913c0ce-3043-40fc-9c7c-1f6605f38a00.png">
-
-* The methods that are called are .getPath, .contains, .getQuery, .split
-* The relevant arguments to those methods are args[0] (the port number), "/add-message", "=".
-* `output` is appended with new message for every  `/add-message`
-*  Since `/add-message` is called again, the command appends the message to `ouput`, which stores the past messages, then displays the whole string of messages.
-
-## Part 2
-
-A failure-inducing input:
-```javascript
-public void testReverseInPlace() {
-int[] input1 = { 1, 2, 3 };
-ArrayExamples.reverseInPlace(input1);
-assertArrayEquals(new int[]{ 3, 2, 1 }, input1);
-}
+Output:
+```
+written_2
+written_2/non-fiction
+written_2/non-fiction/OUP
+written_2/non-fiction/OUP/Berk
+written_2/non-fiction/OUP/Abernathy
+written_2/non-fiction/OUP/Rybczynski
+written_2/non-fiction/OUP/Kauffman
+written_2/non-fiction/OUP/Fletcher
+written_2/non-fiction/OUP/Castro
+written_2/travel_guides
+written_2/travel_guides/berlitz1
+written_2/travel_guides/berlitz2
 ```
 
-An input that doesn't induce a failure:
-```javascript
-public void testReverseInPlace() {
-int[] input1 = { 3 };
-ArrayExamples.reverseInPlace(input1);
-assertArrayEquals(new int[]{ 3 }, input1);
-}
+#### b) Take out `travel-guides`
+Command:
+```
+grep -v "travel_guides" find-results.txt
 ```
 
-The symptom of the two tests:
+Output:
+```
+written_2
+written_2/non-fiction
+written_2/non-fiction/OUP
+written_2/non-fiction/OUP/Berk
+written_2/non-fiction/OUP/Abernathy
+written_2/non-fiction/OUP/Rybczynski
+written_2/non-fiction/OUP/Kauffman
+written_2/non-fiction/OUP/Fletcher
+written_2/non-fiction/OUP/Castro
+written_2/travel_guides
+written_2/travel_guides/berlitz1
+written_2/travel_guides/berlitz2
+estherxiong@Esthers-MacBook-Pro-2 docsearch % grep -v "travel_guides" find-results.txt
+written_2
+written_2/non-fiction
+written_2/non-fiction/OUP
+written_2/non-fiction/OUP/Berk
+written_2/non-fiction/OUP/Berk/ch2.txt
+written_2/non-fiction/OUP/Berk/ch1.txt
+written_2/non-fiction/OUP/Berk/CH4.txt
+written_2/non-fiction/OUP/Berk/ch7.txt
+written_2/non-fiction/OUP/Abernathy
+written_2/non-fiction/OUP/Abernathy/ch2.txt
+written_2/non-fiction/OUP/Abernathy/ch3.txt
+written_2/non-fiction/OUP/Abernathy/ch1.txt
+written_2/non-fiction/OUP/Abernathy/ch7.txt
+written_2/non-fiction/OUP/Abernathy/ch6.txt
+written_2/non-fiction/OUP/Abernathy/ch8.txt
+written_2/non-fiction/OUP/Abernathy/ch9.txt
+written_2/non-fiction/OUP/Abernathy/ch15.txt
+written_2/non-fiction/OUP/Abernathy/ch14.txt
+written_2/non-fiction/OUP/Rybczynski
+written_2/non-fiction/OUP/Rybczynski/ch2.txt
+written_2/non-fiction/OUP/Rybczynski/ch3.txt
+written_2/non-fiction/OUP/Rybczynski/ch1.txt
+written_2/non-fiction/OUP/Kauffman
+written_2/non-fiction/OUP/Kauffman/ch3.txt
+written_2/non-fiction/OUP/Kauffman/ch1.txt
+written_2/non-fiction/OUP/Kauffman/ch4.txt
+written_2/non-fiction/OUP/Kauffman/ch5.txt
+written_2/non-fiction/OUP/Kauffman/ch7.txt
+written_2/non-fiction/OUP/Kauffman/ch6.txt
+written_2/non-fiction/OUP/Kauffman/ch8.txt
+written_2/non-fiction/OUP/Kauffman/ch9.txt
+written_2/non-fiction/OUP/Kauffman/ch10.txt
+written_2/non-fiction/OUP/Fletcher
+written_2/non-fiction/OUP/Fletcher/ch2.txt
+written_2/non-fiction/OUP/Fletcher/ch1.txt
+written_2/non-fiction/OUP/Fletcher/ch5.txt
+written_2/non-fiction/OUP/Fletcher/ch6.txt
+written_2/non-fiction/OUP/Fletcher/ch9.txt
+written_2/non-fiction/OUP/Fletcher/ch10.txt
+written_2/non-fiction/OUP/Castro
+written_2/non-fiction/OUP/Castro/chR.txt
+written_2/non-fiction/OUP/Castro/chP.txt
+written_2/non-fiction/OUP/Castro/chQ.txt
+written_2/non-fiction/OUP/Castro/chB.txt
+written_2/non-fiction/OUP/Castro/chC.txt
+written_2/non-fiction/OUP/Castro/chA.txt
+written_2/non-fiction/OUP/Castro/chV.txt
+written_2/non-fiction/OUP/Castro/chW.txt
+written_2/non-fiction/OUP/Castro/chM.txt
+written_2/non-fiction/OUP/Castro/chZ.txt
+written_2/non-fiction/OUP/Castro/chL.txt
+written_2/non-fiction/OUP/Castro/chN.txt
+written_2/non-fiction/OUP/Castro/chY.txt
+written_2/non-fiction/OUP/Castro/chO.txt
+```
+What's happening is that grep takes all of the lines and displays the files that don't contain the match. This is useful for finding lines that DON'T match your specific input. For example, if we want to only see the directory names, we can just exclude all the files with .txt. This then lets you focus on a specific, controlled amount of data. 
 
-<img width="660" alt="Screenshot 2023-01-28 at 9 40 49 PM" src="https://user-images.githubusercontent.com/122568591/215307375-9e739e54-da80-4e9d-a12d-0f289e8e9726.png">
+### 2. grep -c
+Displays the count of the matched lines
 
-Before(bug):
-```javascript
-static void reverseInPlace(int[] arr) {
-    for(int i = 0; i < arr.length; i += 1) {
-        arr[i] = arr[arr.length - i - 1];
-    }
-}
+#### a) Find lines with `travel_guides`
+Command:
+```
+grep -c "travel_guides" find-results.txt
 ```
 
-After:
-```javascript
-static void reverseInPlace(int[] arr) {
-    int[] temp = arr.clone();
-    for(int i = 0; i < arr.length; i += 1) {
-        arr[i] = temp[arr.length - i - 1];
-    }
-}
+Output:
+```
+182
 ```
 
-The fix addressed the issue of needing to create a temp array cloned from the original. That way, all the elements in the original array can be assigned correctly, using the temp array. The code with the bug lost values when assigning elements to new indices. For example, when you loop through the code with i = 0, you replace the 0th index with the last index value. However, you lose the value of that 0th index and as a result, you cannot successfully reverse the array completely. If we have an array { 1, 2, 3 }, the method would change this array into { 3, 2, 3 } because in the last loop, it gets the value of the 0th index, which is 3 because we changed it. This motivated me to use a temp array to hold and save each value of the indices so that no values are lost in the process of replacing each index.
+#### b) Find lines with `non-fiction`
+Command:
+```
+grep -c "non-fiction" find-results.txt
+```
 
+Output:
+```
+53
+```
+What's happening is that grep counts all the lines that match with your input and display the number. This is useful because you can get how many lines there are with a quick command, rather than counting all the contents of matched lines.
 
+### 3. grep -i
+Displays the matched lines with case-sensitive searching
 
-## Part 3
+#### a) Find lines with `japan`
+Command:
+```
+grep -i "japan" find-results.txt
+```
 
-Something I learned from the labs are how to build and run a web server, as well as how to run the server using a remote computer. I also learned about paths and the various commands you can create and implement to the website. Some examples include /add-message, /count, and /increment.
+Output:
+```
+written_2/travel_guides/berlitz1/HistoryJapan.txt
+written_2/travel_guides/berlitz1/WhereToJapan.txt
+written_2/travel_guides/berlitz1/WhatToJapan.txt
+written_2/travel_guides/berlitz1/IntroJapan.txt
+```
+
+#### b) Find lines with `hongkong`
+Command:
+```
+grep -i "hongkong" find-results.txt
+```
+
+Output:
+```
+written_2/travel_guides/berlitz1/HandRHongKong.txt
+written_2/travel_guides/berlitz1/HistoryHongKong.txt
+written_2/travel_guides/berlitz1/IntroHongKong.txt
+written_2/travel_guides/berlitz1/WhatToHongKong.txt
+written_2/travel_guides/berlitz1/WhereToHongKong.txt
+```
+What's happening is that grep displays all the matching lines with a case-insensitive search. This is useful because regardless of your case variation, it can search for all instances of the word. This allows for more flexible searching if you are indifferent to case variation.
+
+### 4. grep -n
+Displays the line numbers of the matching lines
+
+#### a) Find line numbers with `China`
+Command:
+```
+grep -n "China" find-results.txt
+```
+
+Output:
+```
+185:written_2/travel_guides/berlitz2/China-WhereToGo.txt
+200:written_2/travel_guides/berlitz2/China-History.txt
+227:written_2/travel_guides/berlitz2/China-WhatToDo.txt
+```
+
+#### b) Find line numbers with `Bahamas`
+Command:
+```
+grep -n "Bahamas" find-results.txt
+```
+
+Output:
+```
+173:written_2/travel_guides/berlitz2/Bahamas-WhereToGo.txt
+204:written_2/travel_guides/berlitz2/Bahamas-Intro.txt
+206:written_2/travel_guides/berlitz2/Bahamas-WhatToDo.txt
+234:written_2/travel_guides/berlitz2/Bahamas-History.txt
+```
+What's happening is that grep displays all the numbers lines of the matching lines. This can be useful when you want to locate a specific file.
