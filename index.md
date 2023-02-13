@@ -45,16 +45,18 @@ class StringServer {
 <img width="384" alt="Screenshot 2023-01-28 at 7 11 56 PM" src="https://user-images.githubusercontent.com/122568591/215305002-3d60ebd1-ec24-4235-9390-f5bd782a4fd8.png">
 
 * The methods that are called are .getPath, .contains, .getQuery, .split
-* The relevant arguments to those methods are args[0], "/add-message", "=".
-* `input` is changed when the message is appended
+* The relevant arguments to those methods are args[0] (the port number), "/add-message", "=".
+* `output` is appended with new message for every  `/add-message`
+* The first message displays `hi!` only because `ouput` only holds that string since it was previously empty.
 
 #### Request: `/add-message?s=my name is esther :-)`
 
 <img width="476" alt="Screenshot 2023-01-28 at 7 12 23 PM" src="https://user-images.githubusercontent.com/122568591/215305003-d913c0ce-3043-40fc-9c7c-1f6605f38a00.png">
 
 * The methods that are called are .getPath, .contains, .getQuery, .split
-* The relevant arguments to those methods are args[0], "/add-message", "=".
-* `input` is changed when the message is appended
+* The relevant arguments to those methods are args[0] (the port number), "/add-message", "=".
+* `output` is appended with new message for every  `/add-message`
+*  Since `/add-message` is called again, the command appends the message to `ouput`, which stores the past messages, then displays the whole string of messages.
 
 ## Part 2
 
@@ -99,7 +101,7 @@ static void reverseInPlace(int[] arr) {
 }
 ```
 
-The fix addressed the issue of needing to create a temp array cloned from the original. That way, all the elements in the original array can be assigned correctly, using the temp array. The code with the bug lost values when assigning elements to new indices.
+The fix addressed the issue of needing to create a temp array cloned from the original. That way, all the elements in the original array can be assigned correctly, using the temp array. The code with the bug lost values when assigning elements to new indices. For example, when you loop through the code with i = 0, you replace the 0th index with the last index value. However, you lose the value of that 0th index and as a result, you cannot successfully reverse the array completely. If we have an array { 1, 2, 3 }, the method would change this array into { 3, 2, 3 } because in the last loop, it gets the value of the 0th index, which is 3 because we changed it. This motivated me to use a temp array to hold and save each value of the indices so that no values are lost in the process of replacing each index.
 
 
 
