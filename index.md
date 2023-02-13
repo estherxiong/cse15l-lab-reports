@@ -90,6 +90,8 @@ written_2/non-fiction/OUP/Castro/chO.txt
 ```
 What's happening is that grep takes all of the lines and displays the files that don't contain the match. This is useful for finding lines that DON'T match your specific input. For example, if we want to only see the directory names, we can just exclude all the files with .txt. This then lets you focus on a specific, controlled amount of data. 
 
+Source: ChatGPT (asked: What are grep command-line options?)
+
 ### 2. grep -c
 Displays the count of the matched lines
 
@@ -115,6 +117,8 @@ Output:
 53
 ```
 What's happening is that grep counts all the lines that match with your input and display the number. This is useful because you can get how many lines there are with a quick command, rather than counting all the contents of matched lines.
+
+Source: ChatGPT (asked: What are grep command-line options?)
 
 ### 3. grep -i
 Displays the matched lines with case-sensitive searching
@@ -149,6 +153,8 @@ written_2/travel_guides/berlitz1/WhereToHongKong.txt
 ```
 What's happening is that grep displays all the matching lines with a case-insensitive search. This is useful because regardless of your case variation, it can search for all instances of the word. This allows for more flexible searching if you are indifferent to case variation.
 
+Source: ChatGPT (asked: What are grep command-line options?)
+
 ### 4. grep -n
 Displays the line numbers of the matching lines
 
@@ -179,3 +185,5 @@ Output:
 234:written_2/travel_guides/berlitz2/Bahamas-History.txt
 ```
 What's happening is that grep displays all the numbers lines of the matching lines. This can be useful when you want to locate a specific file.
+
+Source: ChatGPT (asked: What are grep command-line options?)
