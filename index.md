@@ -1,4 +1,4 @@
-# Lab Report 3 - Servers and Bugs (2/13/23)
+# Lab Report 3 - Researching Commands (2/13/23)
 
 ### 1. grep -v
 Inverts the match and displays non-matching lines.
