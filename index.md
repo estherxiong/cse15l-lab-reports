@@ -37,19 +37,6 @@ written_2
 written_2/non-fiction
 written_2/non-fiction/OUP
 written_2/non-fiction/OUP/Berk
-written_2/non-fiction/OUP/Abernathy
-written_2/non-fiction/OUP/Rybczynski
-written_2/non-fiction/OUP/Kauffman
-written_2/non-fiction/OUP/Fletcher
-written_2/non-fiction/OUP/Castro
-written_2/travel_guides
-written_2/travel_guides/berlitz1
-written_2/travel_guides/berlitz2
-estherxiong@Esthers-MacBook-Pro-2 docsearch % grep -v "travel_guides" find-results.txt
-written_2
-written_2/non-fiction
-written_2/non-fiction/OUP
-written_2/non-fiction/OUP/Berk
 written_2/non-fiction/OUP/Berk/ch2.txt
 written_2/non-fiction/OUP/Berk/ch1.txt
 written_2/non-fiction/OUP/Berk/CH4.txt
