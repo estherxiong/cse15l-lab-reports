@@ -7,16 +7,17 @@
 #### Keys Pressed:
 * `Ctrl-R`, `i`, `<enter>`
 
-Since `ssh cs15lwi23asw@ieng6.ucsd.edu` is in my command history, I types `Ctrl-R` and typed part of the command. 
+Since `ssh cs15lwi23asw@ieng6.ucsd.edu` is in my command history, I used `Ctrl-R` and typed part of the command to bring up the log in command.
 
 ## Step 2: Clone your fork of the repository from your Github account
 
 <img width="567" alt="Screenshot 2023-02-25 at 1 55 56 PM" src="https://user-images.githubusercontent.com/122568591/221381324-61a9ed9c-a96e-472b-bd22-452f1d71fdd3.png">
 
 #### Keys Pressed:
+* `<up><up><up><up><up><up><up><enter>`
 * `<up><up><up><enter>`
 
-I used the git clone command by going up in my command history by 3.
+I first removed the existing directory from previous practices by going up to my command history by 7. Then I used the git clone command to bring it back into my directory by going up in my command history by 3.
 
 ## Step 3: Run the tests, demonstrating that they fail
 
@@ -38,7 +39,7 @@ I entered the directory with `cd` command, then I accessed the compile and run c
 * `<right><right><right><right><right><right><right><right><right><right><right><right><delete><1>`
 * `Ctrl-O`, `<enter>`, `Ctrl-X`
   
-I entered the `nano` command and tabbed into the file `ListExample.java`. Then I moved with my finger pad to the line to fix and went right 12 times to delete `1`, and type `2`. Then I saved my results.
+I entered the `nano` command and tabbed into the file `ListExample.java`. Then I moved with my finger pad to the line I need to fix and went right 12 times to delete `1`, and type `2`. Then I saved my results.
   
 ## Step 5: Run the tests, demonstrating that they now succeed
 
@@ -48,15 +49,15 @@ I entered the `nano` command and tabbed into the file `ListExample.java`. Then I
 * `<up><up><up><up><up><up><up><enter>`
 * `<up><up><up><up><up><up><up><enter>`
   
-Since the commands to compile and run, I went up by 7 to access the commands to demonstrate that the tests now run.
+Since the commands to compile and run, I went up by 7 each time to access the commands to demonstrate that the tests now run.
   
 ## Step 6: Commit and push the resulting change to your Github account
 
 <img width="749" alt="Screenshot 2023-02-25 at 2 44 46 PM" src="https://user-images.githubusercontent.com/122568591/221382987-5e85fd09-af96-47aa-8d40-95e4d37878df.png">
   
 #### Keys Pressed:
-* `git clone add L`, `<tab>, `.j`, `<tab>`, `<enter>`
+* `git clone add L`, `<tab>`, `.j`, `<tab>`, `<enter>`
 * `git clone commit -m "Updated`
 * `git push`
   
-I entered the steps to commit and push the resulting changes to my account. I short-cutted the git clone add by tabbing the file, then I manually types the git clone commit.. and git push.
+I entered the steps to commit and push the resulting changes to my account. I short-cutted the git clone add by tabbing the file, then I manually typed the git clone commit and git push command.
