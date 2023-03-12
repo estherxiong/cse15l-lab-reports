@@ -1,63 +1,190 @@
-# Lab Report 4 - CLDQ (Week 7)
+# Lab Report 5 - Putting it All Together (3/12/23)
 
-## Step 1: Log into ieng6
+### 1. grep -v
+Inverts the match and displays non-matching lines.
 
-<img width="1010" alt="Screenshot 2023-02-25 at 1 21 12 PM" src="https://user-images.githubusercontent.com/122568591/221380146-ce2c2517-fc23-4b6b-afed-a0190565a4d7.png">
+#### a) Find directory names
+Command:
+```
+grep -v ".txt" find-results.txt 
+```
 
-#### Keys Pressed:
-* `Ctrl-R`, `i`, `<enter>`
+Output:
+```
+written_2
+written_2/non-fiction
+written_2/non-fiction/OUP
+written_2/non-fiction/OUP/Berk
+written_2/non-fiction/OUP/Abernathy
+written_2/non-fiction/OUP/Rybczynski
+written_2/non-fiction/OUP/Kauffman
+written_2/non-fiction/OUP/Fletcher
+written_2/non-fiction/OUP/Castro
+written_2/travel_guides
+written_2/travel_guides/berlitz1
+written_2/travel_guides/berlitz2
+```
 
-Since `ssh cs15lwi23asw@ieng6.ucsd.edu` is in my command history, I used `Ctrl-R` and typed part of the command to bring up the log in command.
+#### b) Take out `travel-guides`
+Command:
+```
+grep -v "travel_guides" find-results.txt
+```
 
-## Step 2: Clone your fork of the repository from your Github account
+Output:
+```
+written_2
+written_2/non-fiction
+written_2/non-fiction/OUP
+written_2/non-fiction/OUP/Berk
+written_2/non-fiction/OUP/Berk/ch2.txt
+written_2/non-fiction/OUP/Berk/ch1.txt
+written_2/non-fiction/OUP/Berk/CH4.txt
+written_2/non-fiction/OUP/Berk/ch7.txt
+written_2/non-fiction/OUP/Abernathy
+written_2/non-fiction/OUP/Abernathy/ch2.txt
+written_2/non-fiction/OUP/Abernathy/ch3.txt
+written_2/non-fiction/OUP/Abernathy/ch1.txt
+written_2/non-fiction/OUP/Abernathy/ch7.txt
+written_2/non-fiction/OUP/Abernathy/ch6.txt
+written_2/non-fiction/OUP/Abernathy/ch8.txt
+written_2/non-fiction/OUP/Abernathy/ch9.txt
+written_2/non-fiction/OUP/Abernathy/ch15.txt
+written_2/non-fiction/OUP/Abernathy/ch14.txt
+written_2/non-fiction/OUP/Rybczynski
+written_2/non-fiction/OUP/Rybczynski/ch2.txt
+written_2/non-fiction/OUP/Rybczynski/ch3.txt
+written_2/non-fiction/OUP/Rybczynski/ch1.txt
+written_2/non-fiction/OUP/Kauffman
+written_2/non-fiction/OUP/Kauffman/ch3.txt
+written_2/non-fiction/OUP/Kauffman/ch1.txt
+written_2/non-fiction/OUP/Kauffman/ch4.txt
+written_2/non-fiction/OUP/Kauffman/ch5.txt
+written_2/non-fiction/OUP/Kauffman/ch7.txt
+written_2/non-fiction/OUP/Kauffman/ch6.txt
+written_2/non-fiction/OUP/Kauffman/ch8.txt
+written_2/non-fiction/OUP/Kauffman/ch9.txt
+written_2/non-fiction/OUP/Kauffman/ch10.txt
+written_2/non-fiction/OUP/Fletcher
+written_2/non-fiction/OUP/Fletcher/ch2.txt
+written_2/non-fiction/OUP/Fletcher/ch1.txt
+written_2/non-fiction/OUP/Fletcher/ch5.txt
+written_2/non-fiction/OUP/Fletcher/ch6.txt
+written_2/non-fiction/OUP/Fletcher/ch9.txt
+written_2/non-fiction/OUP/Fletcher/ch10.txt
+written_2/non-fiction/OUP/Castro
+written_2/non-fiction/OUP/Castro/chR.txt
+written_2/non-fiction/OUP/Castro/chP.txt
+written_2/non-fiction/OUP/Castro/chQ.txt
+written_2/non-fiction/OUP/Castro/chB.txt
+written_2/non-fiction/OUP/Castro/chC.txt
+written_2/non-fiction/OUP/Castro/chA.txt
+written_2/non-fiction/OUP/Castro/chV.txt
+written_2/non-fiction/OUP/Castro/chW.txt
+written_2/non-fiction/OUP/Castro/chM.txt
+written_2/non-fiction/OUP/Castro/chZ.txt
+written_2/non-fiction/OUP/Castro/chL.txt
+written_2/non-fiction/OUP/Castro/chN.txt
+written_2/non-fiction/OUP/Castro/chY.txt
+written_2/non-fiction/OUP/Castro/chO.txt
+```
+What's happening is that grep takes all of the lines and displays the files that don't contain the match. This is useful for finding lines that DON'T match your specific input. For example, if we want to only see the directory names, we can just exclude all the files with .txt. This then lets you focus on a specific, controlled amount of data. 
 
-<img width="567" alt="Screenshot 2023-02-25 at 1 55 56 PM" src="https://user-images.githubusercontent.com/122568591/221381324-61a9ed9c-a96e-472b-bd22-452f1d71fdd3.png">
+Source: [ChatGPT](https://chat.openai.com/chat/2546b1f1-cd38-4a5a-afd0-70569d5ceaaf)
 
-#### Keys Pressed:
-* `<up><up><up><up><up><up><up><enter>`
-* `<up><up><up><enter>`
+### 2. grep -c
+Displays the count of the matched lines
 
-I first removed the existing directory from previous practices by going up to my command history by 7. Then I used the git clone command to bring it back into my directory by going up in my command history by 3.
+#### a) Find lines with `travel_guides`
+Command:
+```
+grep -c "travel_guides" find-results.txt
+```
 
-## Step 3: Run the tests, demonstrating that they fail
+Output:
+```
+182
+```
 
-<img width="950" alt="Screenshot 2023-02-25 at 2 32 39 PM" src="https://user-images.githubusercontent.com/122568591/221382587-066682bb-2b06-47f1-b39c-b542f770de83.png">
+#### b) Find lines with `non-fiction`
+Command:
+```
+grep -c "non-fiction" find-results.txt
+```
 
-#### Keys Pressed:
-* `cd `, `l`, `<tab>`, <enter>
-* `<up><up><up><up><up><enter>`
-* `<up><up><up><up><up><enter>`
-  
-I entered the directory with `cd` command, then I accessed the compile and run commands in my command history by going up by 5.
+Output:
+```
+53
+```
+What's happening is that grep counts all the lines that match with your input and display the number. This is useful because you can get how many lines there are with a quick command, rather than counting all the contents of matched lines.
 
-## Step 4: Edit the code file to fix the failing test
+Source: [ChatGPT](https://chat.openai.com/chat/2546b1f1-cd38-4a5a-afd0-70569d5ceaaf)
 
-<img width="376" alt="Screenshot 2023-02-25 at 2 08 30 PM" src="https://user-images.githubusercontent.com/122568591/221381715-8c2b0eae-9510-4fcc-a301-638b22a5325a.png">
+### 3. grep -i
+Displays the matched lines with case-sensitive searching
 
-#### Keys Pressed:
-* `nano`, `L`, `<tab>`, `.j`, `<tab>`, `<enter>`
-* `<right><right><right><right><right><right><right><right><right><right><right><right><delete><1>`
-* `Ctrl-O`, `<enter>`, `Ctrl-X`
-  
-I entered the `nano` command and tabbed into the file `ListExample.java`. Then I moved with my finger pad to the line I need to fix and went right 12 times to delete `1`, and type `2`. Then I saved my results.
-  
-## Step 5: Run the tests, demonstrating that they now succeed
+#### a) Find lines with `japan`
+Command:
+```
+grep -i "japan" find-results.txt
+```
 
-<img width="949" alt="Screenshot 2023-02-25 at 2 16 33 PM" src="https://user-images.githubusercontent.com/122568591/221382009-3fd1ef13-5d53-4c7f-8bc4-63b11938d4b5.png">
-  
-#### Keys Pressed:
-* `<up><up><up><up><up><up><up><enter>`
-* `<up><up><up><up><up><up><up><enter>`
-  
-Since the commands to compile and run, I went up by 7 each time to access the commands to demonstrate that the tests now run.
-  
-## Step 6: Commit and push the resulting change to your Github account
+Output:
+```
+written_2/travel_guides/berlitz1/HistoryJapan.txt
+written_2/travel_guides/berlitz1/WhereToJapan.txt
+written_2/travel_guides/berlitz1/WhatToJapan.txt
+written_2/travel_guides/berlitz1/IntroJapan.txt
+```
 
-<img width="749" alt="Screenshot 2023-02-25 at 2 44 46 PM" src="https://user-images.githubusercontent.com/122568591/221382987-5e85fd09-af96-47aa-8d40-95e4d37878df.png">
-  
-#### Keys Pressed:
-* `git clone add L`, `<tab>`, `.j`, `<tab>`, `<enter>`
-* `git clone commit -m "Updated`
-* `git push`
-  
-I entered the steps to commit and push the resulting changes to my account. I short-cutted the git clone add by tabbing the file, then I manually typed the git clone commit and git push command.
+#### b) Find lines with `hongkong`
+Command:
+```
+grep -i "hongkong" find-results.txt
+```
+
+Output:
+```
+written_2/travel_guides/berlitz1/HandRHongKong.txt
+written_2/travel_guides/berlitz1/HistoryHongKong.txt
+written_2/travel_guides/berlitz1/IntroHongKong.txt
+written_2/travel_guides/berlitz1/WhatToHongKong.txt
+written_2/travel_guides/berlitz1/WhereToHongKong.txt
+```
+What's happening is that grep displays all the matching lines with a case-insensitive search. This is useful because regardless of your case variation, it can search for all instances of the word. This allows for more flexible searching if you are indifferent to case variation.
+
+Source: [ChatGPT](https://chat.openai.com/chat/2546b1f1-cd38-4a5a-afd0-70569d5ceaaf)
+
+### 4. grep -n
+Displays the line numbers of the matching lines
+
+#### a) Find line numbers with `China`
+Command:
+```
+grep -n "China" find-results.txt
+```
+
+Output:
+```
+185:written_2/travel_guides/berlitz2/China-WhereToGo.txt
+200:written_2/travel_guides/berlitz2/China-History.txt
+227:written_2/travel_guides/berlitz2/China-WhatToDo.txt
+```
+
+#### b) Find line numbers with `Bahamas`
+Command:
+```
+grep -n "Bahamas" find-results.txt
+```
+
+Output:
+```
+173:written_2/travel_guides/berlitz2/Bahamas-WhereToGo.txt
+204:written_2/travel_guides/berlitz2/Bahamas-Intro.txt
+206:written_2/travel_guides/berlitz2/Bahamas-WhatToDo.txt
+234:written_2/travel_guides/berlitz2/Bahamas-History.txt
+```
+What's happening is that grep displays all the numbers lines of the matching lines. This can be useful when you want to locate a specific file.
+
+Source: [ChatGPT](https://chat.openai.com/chat/2546b1f1-cd38-4a5a-afd0-70569d5ceaaf)
+
